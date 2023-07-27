@@ -47,15 +47,15 @@ function AddVideo({editableVideo}) {
                 <form className="form-wrapper">
                     <div className="form-group">
                         <label className="input-label">Title</label>
-                        <input className="input-field" required name="title" type="text" onChange={handleChange} value={video.title}/>
+                        <input className="input-field" required name="title" type="text" onChange={handleChange} value={video.title} />
                     </div>
                     <div className="form-group">
                         <label className="input-label">Channel</label>
-                        <input className="input-field" required name="channel" type="text" onChange={handleChange} value={video.channel}/>
+                        <input className="input-field" required name="channel" type="text" onChange={handleChange} value={video.channel} />
                     </div>
                     <div className="form-group">
                         <label className="input-label">Views</label>
-                        <input className="input-field" required name="views" type="text" onChange={handleChange} value={video.views}/>
+                        <input className="input-field" required name="views" type="text" onChange={handleChange} value={video.views} />
                     </div>
                     <button className="add-videobtn" onClick={handleSubmit}>
                         {editableVideo ? "Edit Video" : "Add Video"}
