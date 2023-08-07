@@ -14,7 +14,7 @@ function App() {
   const [mode, setMode] = useState("dark-mode");
   // const [videos, dispatch] = useReducer(videoReducer, VideoData);
   const [videos, dispatch] = useReducer(videoReducer, []);
-  // const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState('');
 
   const url =
     "https://api.mockfly.dev/mocks/572cc1d0-7474-409d-b0ac-d09953a6e441/videos";
@@ -50,6 +50,9 @@ function App() {
     setEditableVideo(videos.find((video) => video.id === id));
   }
 
+  function inputHandler(e) {
+    setInputText(e.target.value?.toLowerCase());
+  }
 
   return (
     <VideosContext.Provider value={videos}>
@@ -98,6 +101,8 @@ function App() {
 
           <div className="container">
             <AddVideo editableVideo={editableVideo} />
+
+            <input type="text" onChange={inputHandler} style={{display: "none"}}/>
 
             <div className="videoList">
               {videos 
