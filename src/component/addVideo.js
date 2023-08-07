@@ -44,7 +44,7 @@ function AddVideo({editableVideo}) {
                 <h4 className="section-title"> 
                     {editableVideo ? "Edit Video" : "Add Video"}
                 </h4>
-                <form className="form-wrapper">
+                <form className="form-wrapper" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label className="input-label">Title</label>
                         <input className="input-field" required name="title" type="text" onChange={handleChange} value={video.title} />
@@ -57,7 +57,7 @@ function AddVideo({editableVideo}) {
                         <label className="input-label">Views</label>
                         <input className="input-field" required name="views" type="text" onChange={handleChange} value={video.views} />
                     </div>
-                    <button className="add-videobtn" onClick={handleSubmit}>
+                    <button className="add-videobtn">
                         {editableVideo ? "Edit Video" : "Add Video"}
                     </button>
                 </form>

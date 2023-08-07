@@ -14,6 +14,7 @@ function App() {
   const [mode, setMode] = useState("dark-mode");
   // const [videos, dispatch] = useReducer(videoReducer, VideoData);
   const [videos, dispatch] = useReducer(videoReducer, []);
+  const [inputText, setInputText] = useState('');
 
   const url =
     "https://api.mockfly.dev/mocks/572cc1d0-7474-409d-b0ac-d09953a6e441/videos";
@@ -49,6 +50,7 @@ function App() {
     setEditableVideo(videos.find((video) => video.id === id));
   }
 
+
   return (
     <VideosContext.Provider value={videos}>
       <VideoDispatchContext.Provider value={dispatch}>
@@ -63,10 +65,9 @@ function App() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-video"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <polygon points="23 7 16 12 23 17 23 7"></polygon>
                   <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
@@ -99,17 +100,26 @@ function App() {
             <AddVideo editableVideo={editableVideo} />
 
             <div className="videoList">
-              {videos.map((video, index) => (
-                <Video
-                  id={video.id}
-                  title={video.title}
-                  channel={video.channel}
-                  verified={video.verified}
-                  views={video.views}
-                  key={index}
-                  editVideo={editVideo}
-                />
-              ))}
+              {videos 
+                .filter((el) => {
+                  if(el === '') {
+                    return el
+                  }
+                  else {
+                    return el.title?.toLowerCase().includes(inputText) || el.channel?.toLowerCase().includes(inputText) || el.views?.toLowerCase().includes(inputText)   ;
+                  }
+                })
+                .map((video, index) => (
+                  <Video
+                    id={video.id}
+                    title={video.title}
+                    channel={video.channel}
+                    verified={video.verified}
+                    views={video.views}
+                    key={index}
+                    editVideo={editVideo}
+                  />
+                ))}
             </div>
           </div>
         </div>

@@ -191,7 +191,7 @@ header {
     width: calc(50% - 32px);
   }
   .container.header-inner {
-    padding: 14px 20;
+    padding: 14px 20px;
   }
 }
 @media only screen and (max-width: 768px) {
