@@ -14,7 +14,7 @@ function App() {
   const [mode, setMode] = useState("dark-mode");
   // const [videos, dispatch] = useReducer(videoReducer, VideoData);
   const [videos, dispatch] = useReducer(videoReducer, []);
-  const [inputText, setInputText] = useState('');
+  // const [inputText, setInputText] = useState('');
 
   const url =
     "https://api.mockfly.dev/mocks/572cc1d0-7474-409d-b0ac-d09953a6e441/videos";
